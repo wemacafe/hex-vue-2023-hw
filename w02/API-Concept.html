@@ -117,15 +117,21 @@
 
     const product = {
       data: {
-        title: '[賣]動物園造型衣服3-1', 
-        category: '衣服2',
-        origin_price: 100,
-        price: 300,
-        unit: '個',
-        description: 'Sit down please 名設計師設計',
-        content: '這是內容',
-        is_enabled: 1,
-        imageUrl: 'https://images.unsplash.com/photo-1573662012516-5cb4399006e7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80'
+        category: "蛋糕",
+      content: "尺寸：6寸",
+      description: "法式煎薄餅加上濃郁可可醬，呈現經典的美味及口感。",
+      id: "-McJ-VyqaFlLzUMmpPpm",
+      is_enabled: 1,
+      origin_price: 700,
+      price: 600,
+      title: "暗黑千層",
+      unit: "個",
+      num: 15,
+      imageUrl: "https://images.unsplash.com/photo-1505253149613-112d21d9f6a9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDZ8fGNha2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60",
+      imagesUrl: [
+        "https://images.unsplash.com/flagged/photo-1557234985-425e10c9d7f1?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA5fHxjYWtlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60",
+        "https://images.unsplash.com/photo-1540337706094-da10342c93d8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDR8fGNha2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60"
+      ]
       }
     }
     
@@ -146,7 +152,8 @@
   function removeProduct() {
     // #7 刪除一個產品
     //id要自己抓，看產品來抓
-    axios.delete(`${url}/api/${path}/admin/product/id`)
+    var id='-NL2kVfx_6KkahpkakdH';
+    axios.delete(`${url}/api/${path}/admin/product/${id}`)
       // 有成功都會放在data裡，所以抓下一層
       .then((res)=>{
         console.log(res.data);
