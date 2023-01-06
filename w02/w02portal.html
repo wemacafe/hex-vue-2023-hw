@@ -72,11 +72,18 @@
     const {createApp}=Vue;
       //拉資料，建空物件
       const app={
+        // 第一週學的data，這次用v-model做雙向綁定
         data(){
           return{
-
+            user: {
+              username: '',
+              password: '',
+            },
           }
         }
+        // 第二週學到了method，類似function，要綁在submit上的form
+
+
       }
       //綁到id app上
       createApp(app).mount('#app');
