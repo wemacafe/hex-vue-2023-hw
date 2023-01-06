@@ -35,6 +35,18 @@ createApp({
     },
     openProduct(item) {
       this.temP = item;
+    },
+    deleteProduct(item_id){
+        axios.delete(`${this.apiUrl}/api/${this.apiPath}/admin/product/${item_id}`)
+        // 有成功都會放在data裡，所以抓下一層
+        .then((res)=>{
+            console.log(res.data);
+            this.getData();
+        })
+        .catch((err)=>{
+        // 用dir可以debug
+        console.dir(err);
+        })
     }
   },
   mounted() {

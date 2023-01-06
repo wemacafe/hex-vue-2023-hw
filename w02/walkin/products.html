@@ -35,6 +35,9 @@
                     <th width="120">
                       查看細節
                     </th>
+                    <th width="100">
+                      功能
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -52,6 +55,9 @@
                     </td>
                     <td width="120">
                       <button type="button" class="btn btn-primary" v-on:click="openProduct(item)" >查看細節</button>
+                    </td>
+                    <td width="100">
+                      <button type="button" class="btn btn-danger" v-on:click="deleteProduct(item.id)" >刪除</button>
                     </td>
                   </tr>
                 </tbody>
