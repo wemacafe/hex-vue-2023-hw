@@ -112,7 +112,7 @@
             // 寫入 cookie token
             // expires 設置有效時間
             document.cookie = `hexToken=${token};expires=${new Date(expired)}; path=/`;
-            // window.location = `./w03products.html?apipath=${this.apipath}`;
+            window.location = `./w03products-test.html?apipath=${this.apipath}`;
           })
           .catch((err) => {
             // 用catch來抓錯，console和ui都吐一下資料
