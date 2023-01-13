@@ -24,7 +24,7 @@ createApp({
     data() {
         return {
             apiUrl: 'https://vue3-course-api.hexschool.io/v2',
-            apiPath: 'harper',
+            apiPath: '',
             products: [],
             isNew:false,
             target:{},
