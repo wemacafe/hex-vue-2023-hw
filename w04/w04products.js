@@ -91,7 +91,7 @@ const app=createApp({
             let getUrlString = location.href;
             let url = new URL(getUrlString);
             this.apiPath=url.searchParams.get('apipath');
-            console.log(this.apiPath);
+            // console.log(this.apiPath);
         },
         checkAdmin() {
             const url = `${this.apiUrl}/api/user/check`;
