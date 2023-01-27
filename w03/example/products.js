@@ -4,7 +4,7 @@ let productModal = null;
 let delProductModal = null;
 
 
-createApp({
+const app=createApp({
   data() {
     return {
       apiUrl: 'https://vue3-course-api.hexschool.io/v2',
@@ -101,4 +101,5 @@ createApp({
       this.tempProduct.imagesUrl.push('');
     },
   },
-}).mount('#app');
+});
+app.mount('#app');

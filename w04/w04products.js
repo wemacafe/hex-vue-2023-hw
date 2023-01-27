@@ -1,9 +1,11 @@
 import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+import pagination from './pagination.js';
+
 
 let productModal = null;
 let delProductModal = null;
 
-createApp({
+const app=createApp({
     mounted(){
         this.getMyPath();
 
@@ -28,6 +30,7 @@ createApp({
             products: [],
             isNew:false,
             target:{},
+            page:{}, 
         }
     },
     methods : {
@@ -85,13 +88,10 @@ createApp({
             }
         },
         getMyPath(){
-            var getUrlString = location.href;
-            var url = new URL(getUrlString);
+            let getUrlString = location.href;
+            let url = new URL(getUrlString);
             this.apiPath=url.searchParams.get('apipath');
             console.log(this.apiPath);
-            var url2=new URL("https://wemacafe.github.io/hex-vue-2023-hw/w03/hw/w03products.html?apipath=harper");
-            var ans2=url2.searchParams.get('apipath');
-            console.log("test ans: "+ans2);
         },
         checkAdmin() {
             const url = `${this.apiUrl}/api/user/check`;
@@ -104,18 +104,33 @@ createApp({
                 window.location = './w03portal.html';
             })
         },
-        getData() {
-            const url = `${this.apiUrl}/api/${this.apiPath}/admin/products/all`;
+        getData(page=1) {
+            const url = `${this.apiUrl}/api/${this.apiPath}/admin/products/?page=${page}`;
             axios.get(url)
             .then((response) => {
                 console.log(response.data.products);
                 this.products = response.data.products;
+                this.page=response.data.pagination;
             })
             .catch((err) => {
                 console.dir(err);
                 alert(err.data.message);
             })
         },
+    },
+    components:{
+        pagination
     }
 
-}).mount('#app');
+});
+
+app.component('product-modal',{
+    props:['target','updateProduct'],
+    template:'#product-modal-template',
+});
+app.component('delete-modal',{
+    props:['target','delProduct'],
+    template:'#delete-modal-template',
+});
+
+app.mount('#app');
