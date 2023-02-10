@@ -50,7 +50,7 @@ const productModal={
         //this.modal=new bootstrap.Modal('#userProductModal');
         this.modal=new bootstrap.Modal(this.$refs.modal);
         //清除id，不然無法開cart重覆
-        this.$refs.modal.addEventListener('hidden.bs.modal', function (event) {
+        this.$refs.modal.addEventListener('hidden.bs.modal', (event)=> {
             // this.$emit('emptyCartId',''); 
             console.log("關掉modal");
            this.openModal('');
